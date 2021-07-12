@@ -1,0 +1,4 @@
+- Type of Components
+- HOC
+- Pure Components
+- Props
