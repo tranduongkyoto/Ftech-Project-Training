@@ -1,30 +1,15 @@
-import { BrowserRouter, Link, Route } from 'react-router-dom';
-import { Footer, Header, Text } from 'grommet';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Footer } from 'grommet';
 import HomeScreen from './screens/HomeScreen';
 import AdminScreen from './screens/AdminScreen';
 import AppProvider from './context/Provider';
 import ProductDetail from './components/ProductDetail';
+import AppHeader from './components/AppHeader';
 function App() {
 	return (
 		<AppProvider>
 			<BrowserRouter>
-				<Header background="brand" height="xxsmall">
-					<Link to="/"
-						style={{
-							textDecoration: "none"
-						}}
-					>
-						<Text>Home</Text>
-					</Link>
-					<Link
-						to="/admin"
-						style={{
-							textDecoration: "none"
-						}}
-					>
-						<Text>Admin</Text>
-					</Link>
-				</Header>
+				<AppHeader />
 				<Route path="/admin" component={AdminScreen} />
 				<Route path="/" component={HomeScreen} exact />
 				<Route path="/:id" component={ProductDetail} />

@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 import { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import ProductItem from './ProductItem';
+import { Text, Box } from 'grommet';
 export default function ProductList() {
     const { value, size } = useContext(AppContext);
     var { products, cart } = useContext(AppContext);
@@ -15,21 +16,32 @@ export default function ProductList() {
         }
     }
     if (size !== "All") {
-        products = products.filter(item => item.availableSizes.includes(size));
+        products = products.filter(item => item.sizes.includes(size));
     }
     return (
         <Grid container spacing={1}>
             {
-                products.map(product => {
-                    return (
-                        <Grid item xs={4} key={product._id}>
-                            <ProductItem
-                                product={product}
-                                key={product._id}
-                            />
-                        </Grid>
-                    )
-                })
+                products.length === 0 ? (
+                    <Box
+                        justify="center"
+                    >
+                        <Text>
+                            No Product
+                        </Text>
+                    </Box>
+
+                ) : (
+                    products.map(product => {
+                        return (
+                            <Grid item xs={4} key={product._id}>
+                                <ProductItem
+                                    product={product}
+                                    key={product._id}
+                                />
+                            </Grid>
+                        )
+                    })
+                )
             }
         </Grid>
     )
