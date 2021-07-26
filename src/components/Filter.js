@@ -15,7 +15,7 @@ export default function Filter() {
             <Box
                 justify="around"
             >
-                <Text>6 Product</Text>
+                <Text>{`${context.products.length} Products`}</Text>
             </Box>
             <Box
                 width="small"
@@ -51,7 +51,7 @@ export default function Filter() {
                     <Text>Size</Text>
                 </Box>
                 <Select
-                    options={['All', 'XS', 'S', 'M', 'L', 'XL', 'XXL']}
+                    options={['All', 'M', 'L', 'XL', 'XXL']}
                     value={size}
                     onChange={({ value }) => {
                         setSize(value);

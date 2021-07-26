@@ -5,7 +5,6 @@ import AppContext from '../context/AppContext';
 export default function FormProceed({ total }) {
 	const [value, setValue] = useState({
 		name: "",
-		email: "",
 		phoneNum: "",
 		address: "",
 	});
@@ -25,18 +24,27 @@ export default function FormProceed({ total }) {
 					setValue(value);
 				}}
 			>
-				<FormField name="name" htmlFor="text-input-id" label="Name"
-				//required="true"
+				<FormField
+					name="name"
+					htmlFor="text-input-id"
+					label="Name"
+					required="true"
 				>
 					<TextInput id="text-input-id" name="name" />
 				</FormField>
-				<FormField name="phoneNum" htmlFor="phonenumber-input-id" label="PhoneNumber"
-				//required="true"
+				<FormField
+					name="phoneNum"
+					htmlFor="phonenumber-input-id"
+					label="PhoneNumber"
+					required="true"
 				>
 					<TextInput id="phonenumber-input-id" name="phoneNum" />
 				</FormField>
-				<FormField name="address" htmlFor="address-input-id" label="Address"
-				//required="true"
+				<FormField
+					name="address"
+					htmlFor="address-input-id"
+					label="Address"
+					required="true"
 				>
 					<TextInput id="address-input-id" name="address" />
 				</FormField>
@@ -87,8 +95,8 @@ export default function FormProceed({ total }) {
 									<TableCell><Text>{value.phoneNum}</Text></TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell><Text>Email</Text></TableCell>
-									<TableCell><Text>{value.email}</Text></TableCell>
+									<TableCell><Text>Address</Text></TableCell>
+									<TableCell><Text>{value.address}</Text></TableCell>
 								</TableRow>
 								<TableRow>
 									<TableCell><Text>Total</Text></TableCell>

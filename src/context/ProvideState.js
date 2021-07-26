@@ -19,33 +19,58 @@ export default function ProvideState() {
             "price": 18.9
         },
         {
-            "_id": "dress5",
+            "_id": "dress3",
             "image": "/images/dress5.jpg",
-            "title": "Item5 Frill mini dress",
+            "title": "Item3 Frill mini dress",
             "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
             "sizes": ["X", "L", "XL"],
             "price": 10.9
         },
         {
-            "_id": "dress3",
+            "_id": "dress4",
             "image": "/images/dress3.jpg",
-            "title": "Item3 Midi dress",
+            "title": "Item4 Midi dress",
             "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
             "sizes": ["X", "M", "L"],
-            "price": 14.9
+            "price": 15.9
         },
         {
-            "_id": "dress4",
+            "_id": "dress5",
             "image": "/images/dress4.jpg",
-            "title": "Item4 cami maxi dress",
+            "title": "Item5 cami maxi dress",
             "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
             "sizes": ["XL"],
-            "price": 25.9
+            "price": 20.9
         },
         {
             "_id": "dress6",
             "image": "/images/dress6.jpg",
             "title": "Item6 Midi tea dress",
+            "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+            "sizes": ["XL", "XXL"],
+            "price": 39.9
+        }
+        ,
+        {
+            "_id": "dress7",
+            "image": "/images/dress7.jpg",
+            "title": "Item7 Midi dress",
+            "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+            "sizes": ["X", "M", "L"],
+            "price": 14.9
+        },
+        {
+            "_id": "dress8",
+            "image": "/images/dress8.jpg",
+            "title": "Item8 cami maxi dress",
+            "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+            "sizes": ["XL"],
+            "price": 25.9
+        },
+        {
+            "_id": "dress9",
+            "image": "/images/dress9.jpg",
+            "title": "Item9 Midi tea dress",
             "desc": "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
             "sizes": ["XL", "XXL"],
             "price": 49.9
