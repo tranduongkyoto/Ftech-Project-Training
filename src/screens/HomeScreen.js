@@ -1,46 +1,41 @@
-import { Grid } from '@material-ui/core'
-import React, { useContext } from 'react'
-import Filter from '../components/Filter'
-import ProductList from '../components/ProductList'
-import CartList from '../components/CartList'
-import { Box } from 'grommet'
-import AppContext from '../context/AppContext'
+import { Grid } from '@material-ui/core';
+import { Box } from 'grommet';
+import React, { useContext } from 'react';
+import ProductList from '../components/ProductList';
+import AppContext from '../context/AppContext';
+import Filter from '../components/Filter';
 export default function HomeScreen() {
-    const { cart } = useContext(AppContext);
-    return (
-        <Grid
-            container
-        >
-            <Grid item xs={cart.length !== 0 ? 8 : 11}>
-                <Box
-                    gap="small"
-                    style={{
-                        marginLeft: 20,
-                    }}
-                >
-                    <Filter />
-                    <ProductList />
-                </Box>
-            </Grid>
-            {
-                cart.length !== 0 ? (
-                    <Grid item xs={4}>
-                        <Box
-                            gap="small"
-                            style={{
-                                marginTop: 50,
-                                marginRight: 30,
-                                marginLeft: 30
-                            }}
-                        >
-                            <CartList />
-                        </Box>
-                    </Grid>
-                ) : (
-                    <Grid>
-                    </Grid>
-                )
-            }
-        </Grid >
-    )
+  const { cart, isOpen } = useContext(AppContext);
+  return (
+    <React.Fragment>
+      {isOpen === true ? (
+        <Grid container>
+          <Grid item xs={2}>
+            <Filter />
+          </Grid>
+          <Grid item xs={10}>
+            <Box
+              gap="small"
+              style={{
+                marginLeft: 20,
+              }}
+            >
+              <ProductList />
+            </Box>
+          </Grid>
+        </Grid>
+      ) : (
+        <Grid item xs={12}>
+          <Box
+            gap="small"
+            style={{
+              marginLeft: 20,
+            }}
+          >
+            <ProductList />
+          </Box>
+        </Grid>
+      )}
+    </React.Fragment>
+  );
 }
