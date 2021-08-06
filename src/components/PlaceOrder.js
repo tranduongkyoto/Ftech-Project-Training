@@ -69,7 +69,7 @@ export default function PlaceOrder() {
           <TextInput id="paymentmethod-input-id" name="paymentmethod" />
         </FormField>
         <Box direction="row" gap="medium" justify="center">
-          <Button type="submit" primary label="Submit" />
+          <Button type="submit" primary label="Payment" />
           <Button type="reset" label="Reset" />
           <Button label="Cancel"></Button>
         </Box>

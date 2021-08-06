@@ -77,7 +77,7 @@ export default function CartList() {
                     <Text>Sum</Text>
                   </TableCell>
                   <TableCell align="center">
-                    <Text></Text>
+                    <Text>Action</Text>
                   </TableCell>
                 </TableRow>
               </TableHeader>
@@ -149,7 +149,7 @@ export default function CartList() {
               <Box direction="row-responsive" justify="center" gap="small">
                 <Button
                   primary
-                  label="Proceed"
+                  label="Next"
                   onClick={() => {
                     setTotalOrder(invoiceTotal);
                     history.push('/placeorder');

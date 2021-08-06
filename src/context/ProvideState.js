@@ -220,7 +220,9 @@ export default function ProvideState() {
     },
   ]);
   const [cart, setCart] = useState(
-    localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+    sessionStorage.getItem('cart')
+      ? JSON.parse(sessionStorage.getItem('cart'))
+      : []
   );
   const [order, setOrder] = useState([]);
   const [shippingaddress, setShippingAddress] = useState({});
@@ -230,13 +232,9 @@ export default function ProvideState() {
     brand: [],
     price: [],
   });
-  const [isOpen, setOpen] = useState(false);
   const [total, setTotal] = useState();
   const setTotalOrder = (price) => {
     setTotal(price);
-  };
-  const setOpenFilter = () => {
-    setOpen(!isOpen);
   };
   const addFilter = (type, input) => {
     const newFilter = { ...filter };
@@ -278,7 +276,7 @@ export default function ProvideState() {
       newCart.push({ ...product, count: 1 });
     }
     setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
+    sessionStorage.setItem('cart', JSON.stringify(newCart));
     return newCart;
   };
   const subToCart = (product) => {
@@ -310,10 +308,8 @@ export default function ProvideState() {
     order,
     shippingaddress,
     filter,
-    isOpen,
     total,
     setTotalOrder,
-    setOpenFilter,
     addFilter,
     addToCart,
     subToCart,

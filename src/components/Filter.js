@@ -13,6 +13,7 @@ export default function Filter() {
     to: '',
   });
   const history = useHistory();
+
   return (
     <Box
       gap="small"
@@ -22,32 +23,6 @@ export default function Filter() {
         margin: '20px',
       }}
     >
-      {/* <Box>
-        <Autocomplete
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-            console.log(newValue);
-          }}
-          id="controllable-states-demo"
-          options={options}
-          style={{ width: 300 }}
-          backgroundColor="primary"
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search input"
-              margin="normal"
-              variant="outlined"
-              InputProps={{ ...params.InputProps, type: 'search' }}
-              style={{
-                color: 'white',
-              }}
-            />
-          )}
-        />
-      </Box> */}
-
       <Box direction="column" gap="medium" justify="around">
         <Box justify="start">
           <Text>Category</Text>

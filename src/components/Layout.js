@@ -90,7 +90,7 @@ export default function Layout({ children }) {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={() => setOpenFilter()}
+            //onClick={() => setOpenFilter()}
           >
             <MenuIcon />
           </IconButton>
@@ -106,19 +106,7 @@ export default function Layout({ children }) {
             </Typography>
           </Link>
 
-          <div className={classes.search}>
-            {/* <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            /> */}
-          </div>
+          <div className={classes.search}></div>
           <div></div>
 
           <div className={classes.grow} />

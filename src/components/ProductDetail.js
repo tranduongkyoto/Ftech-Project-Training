@@ -68,8 +68,14 @@ export default function ProductDetail() {
               })}
             </Box>
             <Box direction="row" gap="small">
-              <Text>Rating</Text>
+              <Text>Rating : </Text>
               <Rating value={product.rating} name="read-only" readOnly />
+            </Box>
+            <Box direction="row" gap="small">
+              <Text>{`Brand :   ${product.brand}`}</Text>
+            </Box>
+            <Box gap="small">
+              <Text>{`Place Sell  :   ${product.place}`}</Text>
             </Box>
             <Box direction="row" gap="medium" justify="center">
               <Button
