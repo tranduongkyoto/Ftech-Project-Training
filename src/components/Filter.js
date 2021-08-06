@@ -1,19 +1,20 @@
 import { Text, Box, CheckBoxGroup } from 'grommet';
 import React, { useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
-import useStyles from '../utils/styles';
-import { Form, FormField, TextInput, Button } from 'grommet';
+import { Form, FormField, TextInput, Button, CheckBox } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 export default function Filter() {
   const context = useContext(AppContext);
+  const categoryValue = ['Women', 'Men'];
+  const [category, setCategory] = useState([false, false]);
+  const placeValue = ['Ha Noi', 'HCM City', 'Foreign'];
+  const [place, setPlace] = useState([false, false, false]);
+  const brandValue = ['Yody', 'Choobe', 'Nelly'];
+  const [brand, setBrand] = useState([false, false, false]);
   const [value, setValue] = useState({
     from: '',
     to: '',
   });
-  const history = useHistory();
-
   return (
     <Box
       gap="small"
@@ -27,11 +28,29 @@ export default function Filter() {
         <Box justify="start">
           <Text>Category</Text>
         </Box>
-        <Box width="150px">
-          <CheckBoxGroup
-            options={['Women', 'Men']}
-            onChange={({ value }) => {
-              context.addFilter('category', { category: value });
+        <Box width="150px" gap="small">
+          <CheckBox
+            checked={category[0]}
+            label={`${categoryValue[0]}`}
+            onChange={() => {
+              var newCategory = [...category];
+              newCategory[0] = !category[0];
+              setCategory(newCategory);
+              context.addFilter('category', {
+                category: newCategory,
+              });
+            }}
+          />
+          <CheckBox
+            checked={category[1]}
+            label={`${categoryValue[1]}`}
+            onChange={() => {
+              var newCategory = [...category];
+              newCategory[1] = !category[1];
+              setCategory(newCategory);
+              context.addFilter('category', {
+                category: newCategory,
+              });
             }}
           />
         </Box>
@@ -40,12 +59,42 @@ export default function Filter() {
         <Box justify="start">
           <Text>Place</Text>
         </Box>
-        <Box width="150px">
-          <CheckBoxGroup
-            options={['Ha Noi', 'HCM City', 'Foreign']}
-            onChange={({ value }) =>
-              context.addFilter('place', { place: value })
-            }
+        <Box width="150px" gap="small">
+          <CheckBox
+            checked={place[0]}
+            label={`${placeValue[0]}`}
+            onChange={() => {
+              var newPlace = [...place];
+              newPlace[0] = !place[0];
+              setPlace(newPlace);
+              context.addFilter('place', {
+                place: newPlace,
+              });
+            }}
+          />
+          <CheckBox
+            checked={place[1]}
+            label={`${placeValue[1]}`}
+            onChange={() => {
+              var newPlace = [...place];
+              newPlace[1] = !place[1];
+              setPlace(newPlace);
+              context.addFilter('place', {
+                place: newPlace,
+              });
+            }}
+          />
+          <CheckBox
+            checked={place[2]}
+            label={`${placeValue[2]}`}
+            onChange={() => {
+              var newPlace = [...place];
+              newPlace[2] = !place[2];
+              setPlace(newPlace);
+              context.addFilter('place', {
+                place: newPlace,
+              });
+            }}
           />
         </Box>
       </Box>
@@ -53,12 +102,42 @@ export default function Filter() {
         <Box justify="start">
           <Text>Brand</Text>
         </Box>
-        <Box width="150px">
-          <CheckBoxGroup
-            options={['WIND', 'Yody', 'Choobe', 'Nelly']}
-            onChange={({ value }) =>
-              context.addFilter('brand', { brand: value })
-            }
+        <Box width="150px" gap="small">
+          <CheckBox
+            checked={brand[0]}
+            label={`${brandValue[0]}`}
+            onChange={() => {
+              var newBrand = [...brand];
+              newBrand[0] = !brand[0];
+              setBrand(newBrand);
+              context.addFilter('brand', {
+                brand: newBrand,
+              });
+            }}
+          />
+          <CheckBox
+            checked={brand[1]}
+            label={`${brandValue[1]}`}
+            onChange={() => {
+              var newBrand = [...brand];
+              newBrand[1] = !brand[1];
+              setBrand(newBrand);
+              context.addFilter('brand', {
+                brand: newBrand,
+              });
+            }}
+          />
+          <CheckBox
+            checked={brand[2]}
+            label={`${brandValue[2]}`}
+            onChange={() => {
+              var newBrand = [...brand];
+              newBrand[2] = !brand[2];
+              setBrand(newBrand);
+              context.addFilter('brand', {
+                brand: newBrand,
+              });
+            }}
           />
         </Box>
       </Box>
@@ -96,7 +175,18 @@ export default function Filter() {
             </FormField>
             <Box justify="center" gap="medium">
               <Button type="submit" primary label="Search" />
-              <Button primary label="Clear" onClick={() => history.push('')} />
+              <Button
+                primary
+                label="Clear"
+                type="reset"
+                onClick={() => {
+                  setCategory([false, false]);
+                  setPlace([false, false, false]);
+                  setBrand([false, false, false]);
+                  //setValue({});
+                  context.addFilter('', {});
+                }}
+              />
             </Box>
           </Form>
         </Box>

@@ -2,15 +2,19 @@ import { Grid } from '@material-ui/core';
 import { useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
 import ProductItem from './ProductItem';
-import { Text, Box } from 'grommet';
+import { Text, Box, Button } from 'grommet';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React from 'react';
+import useStyles from '../utils/styles';
 export default function ProductList() {
   const { filter } = useContext(AppContext);
-  var { products, cart } = useContext(AppContext);
+  var { products } = useContext(AppContext);
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
+  const [numberItem, setNumberItem] = useState(9);
+  products = products.filter((item) => products.indexOf(item) < numberItem);
+
   if (filter.category.length !== 0) {
     products = products.filter(
       (item) => filter.category.indexOf(item.category) !== -1
@@ -56,21 +60,20 @@ export default function ProductList() {
               onChange={(event, newValue) => {
                 setSearch(newValue);
               }}
-              // inputValue={searchInput}
-              // onInputChange={(event, newInputValue) => {
-              //   setSearchInput(newInputValue);
-              // }}
+              inputValue={searchInput}
+              onInputChange={(event, newInputValue) => {
+                setSearchInput(newInputValue);
+              }}
               id="search"
               options={products.map((item) => item.title)}
-              style={{ width: 300 }}
-              backgroundColor="primary"
+              backgroundcolor="primary"
               renderInput={(params) => (
                 <TextField
                   {...params}
                   label="Search Here!"
                   margin="normal"
                   variant="outlined"
-                  //InputProps={{ ...params.InputProps, type: 'search' }}
+                  InputProps={{ ...params.InputProps, type: 'search' }}
                   style={{
                     color: 'white',
                   }}
@@ -102,6 +105,16 @@ export default function ProductList() {
             );
           })
         )}
+      </Grid>
+      <Grid container>
+        <Grid item xs={5}></Grid>
+        <Grid item xs={4}>
+          <Button
+            primary
+            label="More"
+            onClick={() => setNumberItem(numberItem + 9)}
+          />
+        </Grid>
       </Grid>
     </React.Fragment>
   );

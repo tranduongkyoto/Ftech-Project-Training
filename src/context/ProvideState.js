@@ -226,6 +226,9 @@ export default function ProvideState() {
   );
   const [order, setOrder] = useState([]);
   const [shippingaddress, setShippingAddress] = useState({});
+  const categoryValue = ['Women', 'Men'];
+  const placeValue = ['Ha Noi', 'HCM City', 'Foreign'];
+  const brandValue = ['Yody', 'Choobe', 'Nelly'];
   const [filter, setFilter] = useState({
     category: [],
     place: [],
@@ -240,11 +243,32 @@ export default function ProvideState() {
     const newFilter = { ...filter };
     switch (type) {
       case 'category':
-        return setFilter({ ...newFilter, category: input.category });
+        const category = input.category;
+        const newCategory = [];
+        for (let i in category) {
+          if (category[i] === true) {
+            newCategory.push(categoryValue[i]);
+          }
+        }
+        return setFilter({ ...newFilter, category: newCategory });
       case 'place':
-        return setFilter({ ...newFilter, place: input.place });
+        const place = input.place;
+        const newPlace = [];
+        for (let i in place) {
+          if (place[i] === true) {
+            newPlace.push(placeValue[i]);
+          }
+        }
+        return setFilter({ ...newFilter, place: newPlace });
       case 'brand':
-        return setFilter({ ...newFilter, brand: input.brand });
+        const brand = input.brand;
+        const newBrand = [];
+        for (let i in brand) {
+          if (brand[i] === true) {
+            newBrand.push(brandValue[i]);
+          }
+        }
+        return setFilter({ ...newFilter, brand: newBrand });
       case 'price':
         return setFilter({ ...newFilter, price: input.price });
       default:
@@ -255,7 +279,6 @@ export default function ProvideState() {
           price: [],
         });
     }
-    //return setFilter({ ...newFilter, input });
   };
   const removeFromCart = (productId) => {
     let newCart = [...cart];

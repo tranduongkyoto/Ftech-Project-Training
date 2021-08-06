@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
-import { alpha, makeStyles } from '@material-ui/core/styles';
-import { Container, Grid } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import AppContext from '../context/AppContext';
-import { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
-import { Box } from 'grommet';
-import { Children } from 'react';
+import AppContext from '../context/AppContext';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -90,26 +87,41 @@ export default function Layout({ children }) {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            //onClick={() => setOpenFilter()}
           >
             <MenuIcon />
           </IconButton>
 
-          <Link
-            to="/"
-            style={{
-              textDecoration: 'none',
-            }}
-          >
-            <Typography className={classes.title} variant="h6" noWrap>
-              Home
-            </Typography>
-          </Link>
-
-          <div className={classes.search}></div>
-          <div></div>
+          <div className={classes.sectionDesktop}>
+            <IconButton
+              aria-label="cart"
+              color="inherit"
+              onClick={() => history.push('/')}
+            >
+              <Badge color="secondary">
+                <HomeOutlinedIcon fontSize="large" />
+              </Badge>
+            </IconButton>
+          </div>
 
           <div className={classes.grow} />
+          <div position="relative" left="200px">
+            <Typography>FTECH SHOPPING CART</Typography>
+          </div>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <IconButton aria-label="cart" color="inherit">
+              <Badge color="secondary">
+                <GroupOutlinedIcon />
+              </Badge>
+            </IconButton>
+          </div>
+          <div className={classes.sectionDesktop}>
+            <IconButton aria-label="cart" color="inherit">
+              <Badge color="secondary">
+                <FavoriteBorderOutlinedIcon />
+              </Badge>
+            </IconButton>
+          </div>
           <div className={classes.sectionDesktop}>
             <IconButton
               aria-label="cart"
@@ -121,9 +133,26 @@ export default function Layout({ children }) {
               </Badge>
             </IconButton>
           </div>
+          <div className={classes.sectionDesktop}>
+            <IconButton aria-label="cart" color="inherit">
+              <Badge color="secondary">
+                <AccountCircleOutlinedIcon />
+              </Badge>
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
       <Container>{children}</Container>
+      {/* <footer
+        className={classes.footer}
+        style={{
+          position: 'fixed',
+          left: 600,
+          bottom: 10,
+        }}
+      >
+        <Typography>Duong Ace</Typography>
+      </footer> */}
     </div>
   );
 }
