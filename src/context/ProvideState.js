@@ -261,6 +261,7 @@ export default function ProvideState() {
     let newCart = [...cart];
     newCart = newCart.filter((item) => item._id !== productId);
     setCart(newCart);
+    sessionStorage.setItem('cart', JSON.stringify(newCart));
     return newCart;
   };
   const addToCart = (product) => {
@@ -289,12 +290,14 @@ export default function ProvideState() {
       newCart = newCart.map((item) =>
         item._id === product._id ? newProduct : item
       );
+      sessionStorage.setItem('cart', JSON.stringify(newCart));
       return setCart([...newCart]);
     }
   };
 
   const removeAll = () => {
     setCart([]);
+    sessionStorage.removeItem('cart');
     return;
   };
   const addShippingAddress = (shippingadress) => {
