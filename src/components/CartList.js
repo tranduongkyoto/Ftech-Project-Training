@@ -81,13 +81,13 @@ export default function CartList() {
                     return <CardItem product={product} key={product._id} />;
                   })}
                 </TableBody>
-                <TableBody>
+                {/* <TableBody>
                   <TableCell></TableCell>
                   <TableCell></TableCell>
                   <TableCell align="right"></TableCell>
                   <TableCell align="right"></TableCell>
                   <TableCell align="right"></TableCell>
-                </TableBody>
+                </TableBody> */}
               </Table>
             </Box>
 

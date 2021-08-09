@@ -18,6 +18,7 @@ import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    marginBottom: 20,
   },
   menuButton: {
     marginRight: theme.spacing(2),
