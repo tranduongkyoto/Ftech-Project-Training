@@ -13,6 +13,7 @@ export default function ProductList() {
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [numberItem, setNumberItem] = useState(9);
+  const options = products.map((item) => item.title);
   products = products.filter((item) => products.indexOf(item) < numberItem);
 
   if (filter.category.length !== 0) {
@@ -60,12 +61,8 @@ export default function ProductList() {
               onChange={(event, newValue) => {
                 setSearch(newValue);
               }}
-              inputValue={searchInput}
-              onInputChange={(event, newInputValue) => {
-                setSearchInput(newInputValue);
-              }}
               id="search"
-              options={products.map((item) => item.title)}
+              options={options}
               backgroundcolor="primary"
               renderInput={(params) => (
                 <TextField
@@ -73,7 +70,6 @@ export default function ProductList() {
                   label="Search Here!"
                   margin="normal"
                   variant="outlined"
-                  InputProps={{ ...params.InputProps, type: 'search' }}
                   style={{
                     color: 'white',
                   }}
