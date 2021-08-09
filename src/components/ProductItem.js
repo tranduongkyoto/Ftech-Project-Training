@@ -13,11 +13,15 @@ import { Cart } from 'grommet-icons';
 import AppContext from '../context/AppContext';
 import { Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
+import { useSnackbar } from 'notistack';
 
 export default function ProductItem({ product }) {
   const context = useContext(AppContext);
+  const { enqueueSnackbar } = useSnackbar();
   const addToCart = (product) => {
-    return context.addToCart(product);
+    context.addToCart(product);
+    enqueueSnackbar('Success Add to Cart!', { variant: 'success' });
+    return;
   };
   return (
     <Card height="medium" width="350px" background="light-1">

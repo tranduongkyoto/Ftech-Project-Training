@@ -20,7 +20,7 @@ export default function CartItem({ product }) {
         <Text> {product.title}</Text>
       </TableCell>
       <TableCell align="right">
-        <Text>{product.price}</Text>
+        <Text>{`${product.price} $`}</Text>
       </TableCell>
       <TableCell align="center">
         <Box direction="row">
@@ -52,7 +52,7 @@ export default function CartItem({ product }) {
         </Box>
       </TableCell>
       <TableCell align="right">
-        <Text>{ccyFormat(product.sum)}</Text>
+        <Text>{`${ccyFormat(product.sum)} $`}</Text>
       </TableCell>
       <TableCell align="right">
         <Button
