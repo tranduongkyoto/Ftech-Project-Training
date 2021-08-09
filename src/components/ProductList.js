@@ -6,7 +6,6 @@ import { Text, Box, Button } from 'grommet';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React from 'react';
-import useStyles from '../utils/styles';
 export default function ProductList() {
   const { filter } = useContext(AppContext);
   var { products } = useContext(AppContext);
@@ -50,37 +49,34 @@ export default function ProductList() {
         item.title.toLowerCase().indexOf(searchInput.toLocaleLowerCase()) !== -1
     );
   }
+  console.log(products);
   return (
     <React.Fragment>
-      {products.length !== 0 ? (
-        <Grid container>
-          <Grid item xs={4}></Grid>
-          <Grid item xs={4}>
-            <Autocomplete
-              value={search}
-              onChange={(event, newValue) => {
-                setSearch(newValue);
-              }}
-              id="search"
-              options={options}
-              backgroundcolor="primary"
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Search Here!"
-                  margin="normal"
-                  variant="outlined"
-                  style={{
-                    color: 'white',
-                  }}
-                />
-              )}
-            />
-          </Grid>
+      <Grid container>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
+          <Autocomplete
+            value={search}
+            onChange={(event, newValue) => {
+              setSearch(newValue);
+            }}
+            id="search"
+            options={options}
+            backgroundcolor="primary"
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search Here!"
+                margin="normal"
+                variant="outlined"
+                style={{
+                  color: 'white',
+                }}
+              />
+            )}
+          />
         </Grid>
-      ) : (
-        <div></div>
-      )}
+      </Grid>
       <Grid
         container
         spacing={2}
