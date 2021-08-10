@@ -12,7 +12,6 @@ export default function ProductList() {
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [numberItem, setNumberItem] = useState(9);
-  const options = products.map((item) => item.title);
   products = products.filter((item) => products.indexOf(item) < numberItem);
 
   if (filter.category.length !== 0) {
@@ -49,6 +48,8 @@ export default function ProductList() {
         item.title.toLowerCase().indexOf(searchInput.toLocaleLowerCase()) !== -1
     );
   }
+  const options = products.map((item) => item.title);
+
   console.log(products);
   return (
     <React.Fragment>
