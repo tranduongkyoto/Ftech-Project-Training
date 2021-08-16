@@ -7,7 +7,6 @@ import Layout from './components/Layout';
 import CartScreen from './screens/CartScreen';
 import Payment from './components/Payment';
 import { SnackbarProvider } from 'notistack';
-import CheckoutWizard from './components/CheckoutWizard';
 import Address from './components/Address';
 function App() {
   return (

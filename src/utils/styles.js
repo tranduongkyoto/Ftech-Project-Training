@@ -7,9 +7,5 @@ const useStyles = makeStyles({
   footer: {
     textAlign: 'center',
   },
-  footer: {
-    marginTop: 10,
-    textAlign: 'center',
-  },
 });
 export default useStyles;
