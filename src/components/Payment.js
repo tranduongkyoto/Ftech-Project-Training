@@ -15,7 +15,6 @@ import CheckoutWizard from './CheckoutWizard';
 import { Grid } from '@material-ui/core';
 export default function Payment() {
   const { shippingaddress, total } = useContext(AppContext);
-  console.log(shippingaddress);
   const history = useHistory();
   return (
     <Grid>

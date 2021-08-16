@@ -13,7 +13,7 @@ export default function Address() {
     paymentmethod: '',
   });
 
-  const { addShippingAddress } = useContext(AppContext);
+  const { addShippingAddress, setCart } = useContext(AppContext);
   const history = useHistory();
   return (
     <Grid>
@@ -28,6 +28,8 @@ export default function Address() {
           onSubmit={({ value }) => {
             setValue(value);
             addShippingAddress(value);
+            sessionStorage.removeItem('cart');
+            setCart([]);
             history.push('/payment');
           }}
         >

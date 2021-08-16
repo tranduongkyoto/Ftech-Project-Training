@@ -1,8 +1,7 @@
 import { Text, Box, CheckBoxGroup } from 'grommet';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import { Form, FormField, TextInput, Button, CheckBox } from 'grommet';
-import { useHistory } from 'react-router-dom';
 export default function Filter() {
   const context = useContext(AppContext);
   const categoryValue = ['Women', 'Men'];
@@ -15,6 +14,12 @@ export default function Filter() {
     from: '',
     to: '',
   });
+  useEffect(() => {
+    setCategory([false, false]);
+    setPlace([false, false, false]);
+    setBrand([false, false, false]);
+    context.addFilter('', {});
+  }, []);
   return (
     <Box
       gap="small"

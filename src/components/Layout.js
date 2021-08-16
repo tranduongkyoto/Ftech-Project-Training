@@ -75,10 +75,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Layout({ children }) {
   const classes = useStyles();
-  const { cart, products, setOpenFilter } = useContext(AppContext);
+  const { cart, products } = useContext(AppContext);
   const history = useHistory();
-  const [value, setValue] = useState('');
-  const options = products.map((item) => item.title);
   return (
     <div className={classes.grow}>
       <AppBar position="static" color="primary">
