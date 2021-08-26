@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from '../context/AppContext';
+import { AppContext } from '../context/AppProvider';
 import {
   Table,
   TableHeader,
@@ -16,6 +16,7 @@ import { Grid } from '@material-ui/core';
 export default function Payment() {
   const { shippingaddress, total } = useContext(AppContext);
   const history = useHistory();
+
   return (
     <Grid>
       <CheckoutWizard activeStep={3}></CheckoutWizard>

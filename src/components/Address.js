@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Form, FormField, TextInput, Box, Button, Grid } from 'grommet';
-import AppContext from '../context/AppContext';
+import { AppContext } from '../context/AppProvider';
 import { useHistory } from 'react-router-dom';
 import CheckoutWizard from './CheckoutWizard';
+import { CartContext } from '../context/CartProvider';
 
 export default function Address() {
   const [value, setValue] = useState({
@@ -12,8 +13,8 @@ export default function Address() {
     postcode: '',
     paymentmethod: '',
   });
-
-  const { addShippingAddress, setCart } = useContext(AppContext);
+  const { setCart } = useContext(CartContext);
+  const { addShippingAddress } = useContext(AppContext);
   const history = useHistory();
   return (
     <Grid>

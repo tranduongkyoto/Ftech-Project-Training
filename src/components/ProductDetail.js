@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import AppContext from '../context/AppContext';
-import { Box, Image, Text, Button } from 'grommet';
-import { Cart, Close } from 'grommet-icons';
 import { Grid } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
+import { Box, Button, Image, Text } from 'grommet';
+import { Cart, Close } from 'grommet-icons';
+import React, { useContext } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { CartContext } from '../context/CartProvider';
+import { ProductContext } from '../context/ProductProvider';
 export default function ProductDetail() {
-  const context = useContext(AppContext);
-  const cart = context.cart;
+  const { cart, addToCart } = useContext(CartContext);
+  const { products } = useContext(ProductContext);
   const { id } = useParams();
-  var { products } = useContext(AppContext);
   var product = products.find((product) => product._id === id);
   const history = useHistory();
-  const addToCart = (product) => {
-    return context.addToCart(product);
+  const addCart = (product) => {
+    return addToCart(product);
   };
   console.log(product);
   return (
@@ -81,7 +81,7 @@ export default function ProductDetail() {
               <Button
                 primary
                 icon={<Cart />}
-                onClick={() => addToCart(product)}
+                onClick={() => addCart(product)}
               ></Button>
               <Button
                 primary

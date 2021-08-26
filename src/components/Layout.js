@@ -5,16 +5,16 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
-import AppContext from '../context/AppContext';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
+import { CartContext } from '../context/CartProvider';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -74,8 +74,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Layout({ children }) {
+  const { cart } = useContext(CartContext);
   const classes = useStyles();
-  const { cart, products } = useContext(AppContext);
+
   const history = useHistory();
   return (
     <div className={classes.grow}>

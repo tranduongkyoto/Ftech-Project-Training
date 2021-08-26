@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Button, Text } from 'grommet';
-import AppContext from '../context/AppContext';
 import { Box, Image } from 'grommet';
+import { CartContext } from '../context/CartProvider';
 export default function CartItem({ product }) {
-  const { removeFromCart, addToCart, subToCart } = useContext(AppContext);
+  const { removeFromCart, addToCart, subToCart } = useContext(CartContext);
   function ccyFormat(num) {
     return `${num.toFixed(2)}`;
   }

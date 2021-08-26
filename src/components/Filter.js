@@ -1,10 +1,10 @@
-import { Text, Box, CheckBoxGroup } from 'grommet';
+import { Text, Box } from 'grommet';
 import React, { useContext, useState, useEffect } from 'react';
-import AppContext from '../context/AppContext';
+import { AppContext } from '../context/AppProvider';
 import { Form, FormField, TextInput, Button, CheckBox } from 'grommet';
 export default function Filter() {
   const context = useContext(AppContext);
-  const categoryValue = ['Women', 'Men'];
+  const categoryValue = ['Women', 'Man'];
   const [category, setCategory] = useState([false, false]);
   const placeValue = ['Ha Noi', 'HCM City', 'Foreign'];
   const [place, setPlace] = useState([false, false, false]);

@@ -1,18 +1,21 @@
 import { Grid } from '@material-ui/core';
-import { useContext, useState } from 'react';
-import AppContext from '../context/AppContext';
-import ProductItem from './ProductItem';
-import { Text, Box, Button } from 'grommet';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import React from 'react';
+import { Box, Button, Text } from 'grommet';
+import React, { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../context/AppProvider';
+import { CartContext } from '../context/CartProvider';
+import { ProductContext } from '../context/ProductProvider';
+import { GetProducts } from '../services.js/products_services';
+import ProductItem from './ProductItem';
 export default function ProductList() {
+  var { products, setProducts } = useContext(ProductContext);
   const { filter } = useContext(AppContext);
-  var { products } = useContext(AppContext);
+  const [numberItem, setNumberItem] = useState(9);
+
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  const [numberItem, setNumberItem] = useState(9);
   const isLoading = products;
   products = products.filter((item) => products.indexOf(item) < numberItem);
 
@@ -51,7 +54,16 @@ export default function ProductList() {
     );
   }
   const options = products.map((item) => item.title);
-
+  useEffect(() => {
+    GetProducts(numberItem)
+      .then((res) => {
+        if (res) {
+          setProducts(res.data);
+          sessionStorage.setItem('products', JSON.stringify(res.data));
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [numberItem]);
   return (
     <React.Fragment>
       {isLoading.length === 0 ? (

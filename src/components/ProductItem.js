@@ -1,25 +1,25 @@
-import React, { useContext } from 'react';
+import Rating from '@material-ui/lab/Rating';
 import {
+  Box,
+  Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
-  Text,
-  Box,
   Image,
-  Button,
+  Text,
 } from 'grommet';
 import { Cart } from 'grommet-icons';
-import AppContext from '../context/AppContext';
-import { Link } from 'react-router-dom';
-import Rating from '@material-ui/lab/Rating';
 import { useSnackbar } from 'notistack';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartProvider';
 
 export default function ProductItem({ product }) {
-  const context = useContext(AppContext);
+  const { addToCart } = useContext(CartContext);
   const { enqueueSnackbar } = useSnackbar();
-  const addToCart = (product) => {
-    context.addToCart(product);
+  const addCart = (product) => {
+    addToCart(product);
     enqueueSnackbar('Success Add to Cart!', { variant: 'success' });
     return;
   };
@@ -45,7 +45,7 @@ export default function ProductItem({ product }) {
       </CardBody>
       <CardFooter pad={{ horizontal: 'small' }} background="light-2">
         <Rating value={product.rating} readOnly />
-        <Button icon={<Cart />} onClick={() => addToCart(product)}></Button>
+        <Button icon={<Cart />} onClick={() => addCart(product)}></Button>
       </CardFooter>
     </Card>
   );

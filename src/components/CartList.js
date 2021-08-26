@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import CardItem from './CartItem';
 import { Text } from 'grommet';
-import AppContext from '../context/AppContext';
+import { AppContext } from '../context/AppProvider';
 import {
   Button,
   Table,
@@ -15,6 +15,7 @@ import {
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import CheckoutWizard from './CheckoutWizard';
+import { CartContext } from '../context/CartProvider';
 const TAX_RATE = 0.07;
 
 function ccyFormat(num) {
@@ -32,7 +33,8 @@ function subtotal(items) {
 
 export default function CartList() {
   const history = useHistory();
-  const { cart, removeAll, setTotalOrder } = useContext(AppContext);
+  const { cart, removeAll } = useContext(CartContext);
+  const { setTotalOrder } = useContext(AppContext);
   var newCart = cart.map((product) => {
     const newProduct = solve(product);
     return newProduct;
