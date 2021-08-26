@@ -41,7 +41,7 @@ function CartProvider({ children }) {
       newCart = newCart.map((item) =>
         item._id === product._id ? newProduct : item
       );
-      sessionStorage.setItem('cart', JSON.stringify(newCart));
+      editCart(newCart);
       return setCart([...newCart]);
     }
   };

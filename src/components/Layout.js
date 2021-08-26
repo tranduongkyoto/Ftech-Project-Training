@@ -76,7 +76,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Layout({ children }) {
   const { cart } = useContext(CartContext);
   const classes = useStyles();
-
   const history = useHistory();
   return (
     <div className={classes.grow}>

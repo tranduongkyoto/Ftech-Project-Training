@@ -13,6 +13,9 @@ import {
 import { useHistory } from 'react-router-dom';
 import CheckoutWizard from './CheckoutWizard';
 import { Grid } from '@material-ui/core';
+function ccyFormat(num) {
+  return num.toFixed(2);
+}
 export default function Payment() {
   const { shippingaddress, total } = useContext(AppContext);
   const history = useHistory();
@@ -81,7 +84,7 @@ export default function Payment() {
                   <Text>Total</Text>
                 </TableCell>
                 <TableCell>
-                  <Text>{`${total} $`}</Text>
+                  <Text>{`${ccyFormat(shippingaddress.total)} $`}</Text>
                 </TableCell>
               </TableRow>
             </TableBody>

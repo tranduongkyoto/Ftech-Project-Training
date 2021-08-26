@@ -14,17 +14,17 @@ function App() {
     <BrowserRouter>
       <SnackbarProvider>
         <AppProvider>
-          <ProductProvider>
-            <CartProvider>
-              <Layout>
+          <CartProvider>
+            <Layout>
+              <ProductProvider>
                 <Route path="/" component={HomeScreen} exact />
-                <Route path="/payment" component={Payment} />
-                <Route path="/address" component={Address} />
-                <Route path="/cart" component={CartScreen} />
                 <Route path="/product/:id" component={ProductDetail} />
-              </Layout>
-            </CartProvider>
-          </ProductProvider>
+              </ProductProvider>
+              <Route path="/cart" component={CartScreen} />
+              <Route path="/address" component={Address} />
+              <Route path="/payment" component={Payment} />
+            </Layout>
+          </CartProvider>
         </AppProvider>
       </SnackbarProvider>
     </BrowserRouter>

@@ -5,7 +5,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Box, Button, Text } from 'grommet';
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../context/AppProvider';
-import { CartContext } from '../context/CartProvider';
 import { ProductContext } from '../context/ProductProvider';
 import { GetProducts } from '../services.js/products_services';
 import ProductItem from './ProductItem';
@@ -13,7 +12,6 @@ export default function ProductList() {
   var { products, setProducts } = useContext(ProductContext);
   const { filter } = useContext(AppContext);
   const [numberItem, setNumberItem] = useState(9);
-
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const isLoading = products;

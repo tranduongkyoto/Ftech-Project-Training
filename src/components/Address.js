@@ -14,7 +14,7 @@ export default function Address() {
     paymentmethod: '',
   });
   const { setCart } = useContext(CartContext);
-  const { addShippingAddress } = useContext(AppContext);
+  const { addShippingAddress, total } = useContext(AppContext);
   const history = useHistory();
   return (
     <Grid>
@@ -28,7 +28,7 @@ export default function Address() {
           onReset={() => setValue({})}
           onSubmit={({ value }) => {
             setValue(value);
-            addShippingAddress(value);
+            addShippingAddress({ ...value, total });
             sessionStorage.removeItem('cart');
             setCart([]);
             history.push('/payment');
