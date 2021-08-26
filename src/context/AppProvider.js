@@ -63,10 +63,11 @@ function AppProvider({ children }) {
     }
   };
 
-  const addShippingAddress = (shippingadress) => {
-    setShippingAddress(shippingadress);
-    addOrder(shippingaddress);
-    return shippingaddress;
+  const addShippingAddress = (order) => {
+    setShippingAddress(order);
+    console.log(order);
+    addOrder(order);
+    return order;
   };
   const state = {
     order,
