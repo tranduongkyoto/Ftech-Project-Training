@@ -1,4 +1,4 @@
-# Todo List project 
+# Shopping Cart
 
 Tech stack: React, React-Router, Material-UI, Grommet, Notistack, Formik, Yup,  Axios. 
 
