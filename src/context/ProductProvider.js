@@ -4,8 +4,8 @@ const ProductContext = createContext();
 
 function ProductProvider({ children }) {
   const [products, setProducts] = useState(
-    sessionStorage.getItem('products')
-      ? JSON.parse(sessionStorage.getItem('products'))
+    localStorage.getItem('products')
+      ? JSON.parse(localStorage.getItem('products'))
       : []
   );
   const state = { products, setProducts };

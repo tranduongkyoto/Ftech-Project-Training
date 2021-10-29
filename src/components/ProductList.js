@@ -15,7 +15,7 @@ export default function ProductList() {
   const [search, setSearch] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const isLoading = products;
-  products = products.filter((item) => products.indexOf(item) < numberItem);
+  // products = products.filter((item) => products.indexOf(item) < numberItem);
 
   if (filter.category.length !== 0) {
     products = products.filter(
@@ -53,14 +53,14 @@ export default function ProductList() {
   }
   const options = products.map((item) => item.title);
   useEffect(() => {
-    GetProducts(numberItem)
-      .then((res) => {
-        if (res) {
-          setProducts(res.data);
-          sessionStorage.setItem('products', JSON.stringify(res.data));
-        }
-      })
-      .catch((err) => console.log(err));
+    const getAll = async () => {
+      const data = await GetProducts(1, numberItem);
+      if (data) {
+        setProducts(data.data);
+        localStorage.setItem('products', JSON.stringify(data.data));
+      }
+    };
+    getAll();
   }, [numberItem]);
   return (
     <React.Fragment>

@@ -1,11 +1,15 @@
 import { createContext, useState } from 'react';
-import { addOrder } from '../services.js/order_services';
 const AppContext = createContext();
 function AppProvider({ children }) {
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(
+    localStorage.getItem('order')
+      ? JSON.parse(localStorage.getItem('order'))
+      : {}
+  );
+  const [orderHistory, setOrderHistory] = useState([]);
   const [shippingaddress, setShippingAddress] = useState(
-    sessionStorage.getItem('order')
-      ? JSON.parse(sessionStorage.getItem('order'))
+    localStorage.getItem('address')
+      ? JSON.parse(localStorage.getItem('address'))
       : {}
   );
   const categoryValue = ['Women', 'Man'];
@@ -62,21 +66,20 @@ function AppProvider({ children }) {
         });
     }
   };
-
-  const addShippingAddress = (order) => {
-    setShippingAddress(order);
-    console.log(order);
-    addOrder(order);
-    return order;
-  };
+  const [orderAdmin, setOrderAdmin] = useState([]);
   const state = {
     order,
     shippingaddress,
     filter,
     total,
+    orderHistory,
+    orderAdmin,
+    setOrderAdmin,
+    setOrderHistory,
+    setOrder,
     setTotalOrder,
     addFilter,
-    addShippingAddress,
+    setShippingAddress,
   };
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
 }

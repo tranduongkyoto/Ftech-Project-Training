@@ -4,9 +4,7 @@ import { editCart, removeAllCart } from '../services.js/cart_services';
 const CartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState(
-    sessionStorage.getItem('cart')
-      ? JSON.parse(sessionStorage.getItem('cart'))
-      : []
+    localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
   );
   const removeFromCart = (productId) => {
     let newCart = [...cart];

@@ -1,18 +1,34 @@
+import axios from 'axios';
+import { GETDISCOUNT } from './endpoints';
+
 const removeCart = (newCart) => {
-  sessionStorage.setItem('cart', JSON.stringify(newCart));
+  localStorage.setItem('cart', JSON.stringify(newCart));
   return newCart;
 };
 const addCart = (newCart) => {
-  sessionStorage.setItem('cart', JSON.stringify(newCart));
+  localStorage.setItem('cart', JSON.stringify(newCart));
   return newCart;
 };
 const editCart = (newCart) => {
-  sessionStorage.setItem('cart', JSON.stringify(newCart));
+  localStorage.setItem('cart', JSON.stringify(newCart));
   return newCart;
 };
 
 const removeAllCart = () => {
-  sessionStorage.removeItem('cart');
+  localStorage.removeItem('cart');
   return [];
 };
-export { editCart, removeAllCart };
+const getDiscount = async (user, code) => {
+  try {
+    var { data } = await axios.post(`${GETDISCOUNT}`, code, {
+      headers: {
+        authorization: `Bearer ${user.token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+    return { err: error.message };
+  }
+};
+export { editCart, removeAllCart, getDiscount };

@@ -1,18 +1,42 @@
-const removeOrder = (newOrder) => {
-  sessionStorage.setItem('order', JSON.stringify(newOrder));
-  return newOrder;
-};
-const addOrder = (newOrder) => {
-  sessionStorage.setItem('order', JSON.stringify(newOrder));
-  return newOrder;
-};
-const editOrder = (newOrder) => {
-  sessionStorage.setItem('order', JSON.stringify(newOrder));
-  return newOrder;
-};
+import axios from 'axios';
+import { ORDER } from './endpoints';
 
-const removeAllOrder = () => {
-  sessionStorage.removeItem('order');
-  return [];
+const addOrder = async (order, token) => {
+  try {
+    var { data } = await axios.post(ORDER, order, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  return data;
 };
-export { addOrder };
+const getOrder = async (user_id, token) => {
+  try {
+    var { data } = await axios.get(`${ORDER}/${user_id}`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return { err: error.message };
+  }
+  return data;
+};
+const getOrders = async (user_id, token) => {
+  try {
+    var { data } = await axios.get(`${ORDER}`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return { err: error.message };
+  }
+  return data;
+};
+export { addOrder, getOrder, getOrders };

@@ -11,10 +11,11 @@ export default function Address() {
     phoneNum: '',
     address: '',
     postcode: '',
-    paymentmethod: '',
+    // paymentmethod: '',
   });
+  const [paymentmethod, setPaymentMethod] = useState('');
   const { setCart } = useContext(CartContext);
-  const { addShippingAddress, total } = useContext(AppContext);
+  const { setShippingAddress, total } = useContext(AppContext);
   const history = useHistory();
   return (
     <Grid>
@@ -28,10 +29,14 @@ export default function Address() {
           onReset={() => setValue({})}
           onSubmit={({ value }) => {
             setValue(value);
-            addShippingAddress({ ...value, total });
-            sessionStorage.removeItem('cart');
-            setCart([]);
-            history.push('/payment');
+            setShippingAddress({ ...value, total });
+            localStorage.setItem(
+              'address',
+              JSON.stringify({ ...value, total })
+            );
+            //localStorage.removeItem('cart');
+            //setCart([]);
+            history.push('/placeorder');
           }}
         >
           <FormField
@@ -66,14 +71,25 @@ export default function Address() {
           >
             <TextInput id="postcode-input-id" name="postcode" />
           </FormField>
-          <FormField
+          {/* <FormField
             name="paymentmethod"
             htmlFor="paymentmethod-input-id"
             label="Payment Method"
             required="true"
           >
             <TextInput id="paymentmethod-input-id" name="paymentmethod" />
-          </FormField>
+          </FormField> */}
+          {/* <FormField
+            name="paymentmethod"
+            label="Payment Method"
+            required="true"
+          >
+            <Select
+              options={['PayPal', 'Striple', 'Momo', 'P2P']}
+              value={paymentmethod}
+              onChange={({ option }) => setPaymentMethod(option)}
+            />
+          </FormField> */}
           <Box direction="row" gap="medium" justify="center">
             <Button type="submit" primary label="Payment" />
             <Button type="reset" label="Reset" />
