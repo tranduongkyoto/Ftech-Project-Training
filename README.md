@@ -10,6 +10,7 @@ A simple Shopping Cart. User can: search, filter, see details of product, then s
 
 ### Run application 
 Run BE:  Using readme.md in https://github.com/tranduongkyoto/project_backend_api
+
 Run FE: 
 ```sh
 $ git clone ...
