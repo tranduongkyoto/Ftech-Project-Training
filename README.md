@@ -12,7 +12,7 @@ Link BE: https://github.com/tranduongkyoto/project_backend_api
 
 ```sh
 $ git clone ...
-$ cd Todo_list
+$ cd Ftech-Project_Training
 $ npm install 
 $ npm start
 ```
