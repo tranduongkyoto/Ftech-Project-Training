@@ -6,11 +6,15 @@ Tech stack: React, React-Router, Material-UI, Grommet, Notistack, Formik, Yup,  
  
 A simple Shopping Cart. User can: search, filter, see details of product, then select them to cart. User can add, delete, edit product in cart and fill shipping address form to order.
 
-### Run application 
 
+
+### Run application 
+Run BE:  Using readme.md in https://github.com/tranduongkyoto/project_backend_api
+
+Run FE: 
 ```sh
 $ git clone ...
-$ cd Todo_list
+$ cd Ftech-Project_Training
 $ npm install 
 $ npm start
 ```
