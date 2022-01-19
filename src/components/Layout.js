@@ -160,7 +160,7 @@ export default function Layout({ children }) {
 
           <div className={classes.grow} />
           <div position="relative" left="200px">
-            <Typography>FTECH SHOPPING CART</Typography>
+            <Typography></Typography>
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>

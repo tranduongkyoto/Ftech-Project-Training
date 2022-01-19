@@ -152,6 +152,7 @@ export default function CartList() {
                     console.log(value);
                     console.log(user);
                     const data = await getDiscount(user, value);
+                    console.log(data);
                     setDiscount((invoiceTotal * data.data) / 100);
                   }}
                 >

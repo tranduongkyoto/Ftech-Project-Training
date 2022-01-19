@@ -16,10 +16,10 @@ export default function ProductList() {
   const [searchInput, setSearchInput] = useState('');
   const isLoading = products;
   // products = products.filter((item) => products.indexOf(item) < numberItem);
-
+  console.log(filter);
   if (filter.category.length !== 0) {
     products = products.filter(
-      (item) => filter.category.indexOf(item.category) !== -1
+      (item) => filter.category.indexOf(item.category.name) !== -1
     );
   }
   if (filter.place.length !== 0) {

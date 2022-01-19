@@ -12,7 +12,7 @@ function AppProvider({ children }) {
       ? JSON.parse(localStorage.getItem('address'))
       : {}
   );
-  const categoryValue = ['Women', 'Man'];
+  const categoryValue = ['Woman', 'Man'];
   const placeValue = ['Ha Noi', 'HCM City', 'Foreign'];
   const brandValue = ['Yody', 'Choobe', 'Nelly'];
   const [filter, setFilter] = useState({

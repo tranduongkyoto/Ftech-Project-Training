@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppProvider';
 import { Form, FormField, TextInput, Button, CheckBox } from 'grommet';
 export default function Filter() {
   const context = useContext(AppContext);
-  const categoryValue = ['Women', 'Man'];
+  const categoryValue = ['Woman', 'Man'];
   const [category, setCategory] = useState([false, false]);
   const placeValue = ['Ha Noi', 'HCM City', 'Foreign'];
   const [place, setPlace] = useState([false, false, false]);
