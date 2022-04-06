@@ -4,15 +4,15 @@ Tech stack: React, React-Router, Material-UI, Grommet, Notistack, Formik, Yup,  
 
 ###
  
-A simple Shopping Cart. User can: search, filter, see details of product, then select them to cart. User can add, delete, edit product in cart and fill shipping address form to order. User can checkout online with Stripe
+A simple Shopping Cart. User can: search, filter, see details of product, then select them to cart. User can add, delete, edit product in cart and fill shipping address form to order. User can checkout online with Stripe.
 
 ### Run application 
 
 FE
 
 ```sh
-$ git clone ...
-$ cd shopping-cart-fe
+$ git clone https://github.com/tranduongkyoto/shopping-cart-frontend.git
+$ cd shopping-cart-frontend
 $ npm install 
 $ npm start
 ```
