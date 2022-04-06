@@ -1,4 +1,4 @@
-# Shopping Cart
+# Shopping Cart(FE)
 
 Tech stack: React, React-Router, Material-UI, Grommet, Notistack, Formik, Yup,  Axios. 
 
